@@ -15,6 +15,7 @@
 - [Empty IF Branches](checks/empty-if-branches.md)
 - [Empty Procedure](checks/empty-procedure.md)
 - [Equals Sign Chaining](checks/equals-sign-chaining.md)
+- [External Call in Unit Tests](checks/external-call-in-ut.md)
 - [FORM Routine](checks/form-routine.md)
 - [FUNCTION Routine](checks/function-routine.md)
 - [Interface in Class](checks/interface-in-class.md)
