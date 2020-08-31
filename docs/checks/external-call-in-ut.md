@@ -2,19 +2,19 @@
 
 # External Call in Unit Tests Check
 ## What is the Intent of the Check?
-The “Database Access within Unit-Test” Check scans test classes and its contents searching for any kind of explicit DB access within the tests. Since every DB access is considered to be a dependency, this should not be allowed in test code.
+The “External Call within Unit-Test” Check scans test classes and its contents searching for any kind of explicit redirection (external call changing the main workflow to another program) within the tests. Since every external call/redirection is considered to be a dependency, this should not be allowed in test code.
 
 ## How does the check work?
-Statements like: SUBMIT accessing physical database tables (SAP Dictionary Tables) are detected and presented.
+Statements like: SUBMIT which deviates completely the workflow (callstack) of a program are detected in test code.
 
 ## Which attributes can be maintained?
 ![Attributes](./img/external_call_in_ut.png)
 
 ## How to solve the issue?
-The solution is to mock these DB accesses with a proper dependency isolation technique.
+The solution is to mock these external call/redirection with a proper dependency isolation technique.
 
 ## What to do in case of exception?
-In special cases, it is possible to suppress a finding by using the pseudo comment “#EC DB_ACCESS_UT. The pseudo comment must be placed right after the class definition header.
+In special cases, it is possible to suppress a finding by using the pseudo comment “#EC EXT_CALL_UT. The pseudo comment must be placed right after the SUBMIT statement itself.
 
 ## Example
 ```abap
