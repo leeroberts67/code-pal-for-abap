@@ -8,7 +8,7 @@ The “Database Access within Unit-Test” Check scans test classes and its cont
 Statements like: SUBMIT accessing physical database tables (SAP Dictionary Tables) are detected and presented.
 
 ## Which attributes can be maintained?
-![Attributes](./img/database_access_in_ut.png)
+![Attributes](./img/external_call_in_ut.png)
 
 ## How to solve the issue?
 The solution is to mock these DB accesses with a proper dependency isolation technique.
