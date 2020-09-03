@@ -2,7 +2,7 @@
 
 # Pseudo Comment Usage Check
 ## What is the Intent of the Check?
-The pseudo comment usage check lists the number of Clean Code pseudo comments per object. Pseudo comments completely suppress the findings in ATC. Thus, this check can be used whether objects without any other finding use a lot of clean code pseudo comments to suppress findings.
+The pseudo comment usage check lists the number of Clean Code pseudo comments per object. Pseudo comments completely suppress the findings in ATC. Thus, this check can be used to see whether objects without any other finding use a lot of clean code pseudo comments to suppress findings.
 
 ## How does the check work?
 It simply counts the number of used clean code pseudo comments.
