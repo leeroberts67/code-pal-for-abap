@@ -5,7 +5,7 @@
 Quote comments indent along with the statements they comment.
 
 ## How to solve the issue?
-Identing the comments along with the statements.
+Indenting the comments along with the statements.
 
 ## Example
 Before the check: 
