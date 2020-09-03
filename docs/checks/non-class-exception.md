@@ -2,10 +2,10 @@
 
 # Non-Class Exception Check
 ## What is the Intent of the Check?
-The “Non Class Exception” Check is part of the Clean Code Check Repository.
+The “Non-Class Exception” Check is part of the Clean Code Check Repository.
 
 ## How does the check work?
-It search for non class-based exceptions like:
+It search for non-class-based exceptions such as:
 * `RAISE SYSTEM-EXCEPTIONS`
 * `RAISE` ( without `EXCEPTION` or `RESUMABLE EXCEPTION` )
 * `MESSAGE with RAISING`
@@ -14,14 +14,14 @@ It search for non class-based exceptions like:
 ![Attributes](./img/non_class_based_exception.png)
 
 ## How to solve the issue?
-The solution is to use class-base exceptions like:
+Use class-based exceptions such as:
 * `RAISE EXCEPTION`
 * `RAISE RESUMABLE EXCEPTION`
 * `RAISE SHORTDUMP`
 * `THROW` ( in conditions )
 
 ## What to do in case of exception?
-In special cases you can suppress this Check’s finding by using the pseudo comment `“#EC NON_CL_EXCEPT`.
+In special cases you can suppress this check’s findings by using the pseudo comment `“#EC NON_CL_EXCEPT`.
 
 ## Example
 ```abap
