@@ -2,7 +2,7 @@
 
 # Comment Type
 ## What is the Intent of the Check?
-Comments with `"`, not with `*`, because asterisked comments tend to indent to weird places.
+Checks if comments are marked with `"`, not with `*`, because asterisked comments tend to indent to weird places.
 
 ## How to solve the issue?
 Replacing the comment type from `*` to `"`.
