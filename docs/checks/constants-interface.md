@@ -2,7 +2,7 @@
 
 # Constants Interface Check
 ## What is the Intent of the Check?
-You should always prefer enumeration classes to constants interfaces.
+You should always use enumeration classes rather than constants interfaces, wherever possible.
 
 ## How does the check work?
 The check searches for interfaces with only constants.
@@ -14,7 +14,7 @@ The check searches for interfaces with only constants.
 Use enumeration classes instead.
 
 ## What to do in case of exception?
-In special cases, it is possible to suppress a finding by using the pseudo comment `"#EC CONS_INTF`. The pseudo comment must be placed right after the class definition header.
+In special cases, it is possible to suppress a finding by using the pseudo comment `"#EC CONS_INTF`. The pseudo comment must be placed directly after the class definition header.
 
 ## Example
 ```abap
