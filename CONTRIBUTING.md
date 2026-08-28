@@ -1,23 +1,12 @@
-# Contributing
+# CONTRIBUTING
 
-We are a team with limited capacity dedicated to several projects. Every single contribution is valid and more than welcome. Feel free to help us in developing new ABAP Checks and keeping this project up & running! Hereby a short how-to tutorial.
+## Developer Certificate of Origin (DCO)
 
-### How-to
+Due to legal reasons, contributors will be asked to accept a DCO before they submit the first pull request to this project. SAP uses [the standard DCO text of the Linux Foundation](https://developercertificate.org/).  
+This happens in an automated fashion during the submission process: the CLA assistant tool will add a comment to the pull request. Click it to check the DCO, then accept it on the following screen. CLA assistant will save this decision for upcoming contributions.
 
-Fork our repository, then clone/pull the forked repo via ABAPgit into your system:
+This DCO replaces the previously used CLA ("Contributor License Agreement") as well as the "Corporate Contributor License Agreement" with new terms which are well-known standards and hence easier to approve by legal departments. Contributors who had already accepted the CLA in the past may be asked once to accept the new DCO.
 
-    https://github.com/your-username/code-pal-for-abap.git
+## How to Contribute
 
-Create and test your new Check in your system.
-
-When you are done. Please `stage` --> `commit` --> `push` the files to your fork.
-
-Back to github.com you can create a pull request from your fork to our base repo.
-
-At this point of time, we will verify your code and authorize/approve the merge (if applicable). Please create the request to merge it with our `master` branch.
-
-Thank you in advance for contributing and sharing your ideas within our community! We really appreciate this!
-
-### Some usefull information
-
-* Write a [good commit message](https://chris.beams.io/posts/git-commit/).
+Please, read the [How To Contribute](pages/how-to-contribute.md) guidance.

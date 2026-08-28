@@ -1,17 +1,20 @@
-[BACK](../check_documentation.md)
+[code pal for ABAP](../../README.md) > [Documentation](../check_documentation.md) > [Pseudo Comment Usage Check](pseudo-comment-usage.md)
 
-# Pseudo Comment Usage Check
-## What is the Intent of the Check?
-The pseudo comment usage check lists the number of Clean Code pseudo comments per object. Pseudo comments completely suppress the findings in ATC. Thus, this check can be used whether objects without any other finding use a lot of clean code pseudo comments to suppress findings.
+## Pseudo Comment Usage Check
 
-## How does the check work?
-It simply counts the number of used clean code pseudo comments.
+### What is the intent of the check?
 
-## Which attributes can be maintained?
-![Attributes](./img/pseudo_comment_usage.png)
+This check lists the number of "code pal for ABAP" pseudo comments per object being used.  
+Pseudo comments completely suppress the findings in ATC. Thus, this check can be used whether objects without any other finding use a lot of pseudo comments to suppress findings.
 
-## How to solve the issue?
-Solve the other issues so that less pragmas are used.
+### How does the check work?
 
-## What to do in case of exception?
-There should be no exception as the check works as an indication. Thus, it is also not possible to suppress Code Inspector findings from this check.
+It simply counts the number of code pal for ABAP pseudo comments being used.
+
+### How to solve the issue?
+
+Solve the other issues so that fewer pseudo comments are used.
+
+### What to do in case of exception?
+
+There is no exception as this check is merely counting pseudo comments and so its findings do not represent any specific issue.

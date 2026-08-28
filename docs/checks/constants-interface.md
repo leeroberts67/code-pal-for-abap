@@ -1,27 +1,64 @@
-[BACK](../check_documentation.md)
+[code pal for ABAP](../../README.md) > [Documentation](../check_documentation.md) > [Constants Interface Check](constants-interface.md)
 
-# Constants Interface Check
-## What is the Intent of the Check?
-You should always prefer enumeration classes to constants interfaces.
+## Constants Interface Check
 
-## How does the check work?
-The check searches for interfaces with only constants.
+### What is the intent of the check?
 
-## Which attributes can be maintained?
-![Attributes](./img/constants_interface.png)
+This check is meant to prevent the creation of interfaces whose sole purpose is to define constants. You should usually prefer [enumeration classes](https://github.com/SAP/styleguides/blob/main/clean-abap/CleanABAP.md#prefer-enumeration-classes-to-constants-interfaces) to interfaces that only declare constants.
 
-## How to solve the issue?
+### How does the check work?
+
+The check searches for interfaces containing only constants.
+### How to solve the issue?
+
 Use enumeration classes instead.
 
-## What to do in case of exception?
-In special cases, it is possible to suppress a finding by using the pseudo comment `"#EC CONS_INTF`. The pseudo comment must be placed right after the class definition header.
+### What to do in case of exception?
 
-## Example
+In exceptional cases, you can suppress this finding by using the pseudo comment `"#EC CONS_INTF` which should be placed right after the class definition header:
+
 ```abap
 INTERFACE interface_name.   "#EC CONS_INTF
     CONSTANTS two TYPE i VALUE 2.
 ENDINTERFACE.
 ```
 
-## Further Readings & Knowledge
-* [ABAP Styleguides on Clean Code](https://github.com/SAP/styleguides/blob/master/clean-abap/CleanABAP.md#prefer-enumeration-classes-to-constants-interfaces)
+### Example
+
+Before the check:
+
+```abap
+INTERFACE /dirty/message_severity.
+  CONSTANTS:
+    error        TYPE symsgty VALUE 'E',
+    warning      TYPE symsgty VALUE 'W', 
+    notification TYPE symsgty VALUE 'N'.
+ENDINTERFACE.
+```
+
+After the check:
+
+```abap
+CLASS /clean/message_severity DEFINITION PUBLIC ABSTRACT FINAL.
+  PUBLIC SECTION.
+    CONSTANTS:
+       error        TYPE symsgty VALUE 'E',
+       warning      TYPE symsgty VALUE 'W', 
+       notification TYPE symsgty VALUE 'N'.
+ENDCLASS.
+```
+or
+```abap
+CLASS /clean/message_severity DEFINITION PUBLIC CREATE PRIVATE FINAL.
+  PUBLIC SECTION.
+    CLASS-DATA:
+      error        TYPE REF TO /clean/message_severity READ-ONLY,
+      warning      TYPE REF TO /clean/message_severity READ-ONLY,
+      notification TYPE REF TO /clean/message_severity READ-ONLY.
+  " ...
+ENDCLASS.
+```
+
+### Further Readings & Knowledge
+
+* [Clean ABAP - Prefer enumeration classes to interfaces with constants](https://github.com/SAP/styleguides/blob/main/clean-abap/CleanABAP.md#prefer-enumeration-classes-to-constants-interfaces)

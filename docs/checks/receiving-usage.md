@@ -1,25 +1,28 @@
-[BACK](../check_documentation.md)
+[code pal for ABAP](../../README.md) > [Documentation](../check_documentation.md) > [RECEIVING Statement Usage Check](receiving-usage.md)
 
-# RECEIVING Usage Check
-## What is the Intent of the Check?
-The “Receiving Usage” Check is part of the Clean Code Check Repository.
+## RECEIVING Statement Usage Check
 
-## How does the check work?
-This check checks the usage of the `RECEIVING` statement.
+### What is the intent of the check?
 
-## Which attributes can be maintained?
-![Attributes](./img/receiving_statement_usage.png)
+This check searches for `RECEIVING` clauses in method calls which should no longer be used. The only case in which it is necessary to use `RECEIVING` rather than functional notation is when an `EXCEPTIONS` clause to catch classic exceptions is present.
 
-## How to solve the issue?
-`RECEIVING` shall not be used.
+### How to solve the issue?
+
+Replace the `RECEIVING` clause with its functional equivalent:
+
 ```abap
 DATA(sum) = aggregate_values( values ).
 ```
+instead of
+```abap
+DATA sum TYPE i.
+aggregate_values( EXPORTING values = values RECEIVING result = sum ).
+```
 
-## What to do in case of exception?
-In special cases you can suppress this finding by using the pseudo comment: `“#EC RECEIVING_USAGE`.
+### What to do in case of exception?
 
-## Example
+In exceptional cases, you can suppress this finding by using the pseudo comment `“#EC RECEIVING_USAGE`:
+
 ```abap
 aggregate_values(
     EXPORTING
@@ -28,5 +31,6 @@ aggregate_values(
         result = DATA(sum) ).   "#EC RECEIVING_USAGE
 ```
 
-## Further Readings & Knowledge
-* [ABAP Styleguides on Clean Code](https://github.com/SAP/styleguides/blob/master/clean-abap/CleanABAP.md#omit-receiving)
+### Further Readings & Knowledge
+
+* [Clean ABAP - Omit RECEIVING](https://github.com/SAP/styleguides/blob/main/clean-abap/CleanABAP.md#omit-receiving)

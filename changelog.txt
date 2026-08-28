@@ -1,0 +1,252 @@
+code-pal-for-abap changelog
+=================
+
+Dependencies
+------------------
+1. SAP Note 2527903 - Remote analysis (for check system)
+
+Upgrade Note
+------------------
+Whenever you upgrade code pal for ABAP, it is highly recommended to execute the Y_CI_CHECK_REGISTRATION report to activate/reactivate the Checks (SE38 transaction) and regenerate the respective Code Inspector Variant (SCI transaction)
+
+Legend
+------------------
+* : fixed
+! : changed
++ : added
+- : removed
+
+2021-11-11 v.1.16.3
+------------------
+* Incompatibility with abapGit after commit dc4b3705216757c7533f5802d51 (#528)
+* Unit test WITHOUT_ISSUE in Y_CHECK_COMMENT_USAGE fails (#527)
+* Refactoring Function Check (#531)
+* Unit test RFC_ENABLED in Y_CHECK_FUNCTION fails (#526)
+- Remove static dependency to developer version of abapGit (#524)
+
+2021-11-05 v.1.16.2
+------------------
+* Comment Position when Line Contains Pseudo Comment (#516)
+
+2021-11-03 v.1.16.1
+------------------
+* DB Access in UT: False Positive (#513)
+
+2021-11-01 v.1.16.0
+------------------
+* Prefer New: Dynamic Call with Parameters (#502)
+* DB Access in UT: Global Inheritance (#500)
+* DB Access in UT: Local Inheritance (#498)
+* Skip 'Prefer RETURNING to EXPORTING' when both exist (#490)
+* Pseudo Comment Usage: Multiple Inline Entries (#494)
+* Prefer Pragmas to Pseudo Comments: Multiple Pseudo Comments (#489)
+* Y_CHECK_MESSAGE_EASY_TO_FIND dump (#492)
+* Chain Declaration for Complex Structures (#488)
+* Empty Catch Alternative Pseudo Comment (#337)
++ Alternative Pseudo Comment (#486)
+* line_exists does not support the operator IN (#484)
+* Empty Catch: Test Double Framework (#483)
+* Y_CHECK_FORM: Screen Events (#454)
+* Magic Number: CASE SY-TABIX and CO NUMBERS (#480)
+* Magic Number: Leading Zeros (#479)
+* Prefer New to Create Object: Dynamic Type (#469)
+* Magic Number: Table Index (#468)
+* Use native *_wa variables (#474)
+* Refactoring (#436,#452,#458)
+* Cannot run unit tests on 752 (#461)
+* Profiles: Allow Exemptions (#447)
+* BAdI example class vs Percentage Comment (#443)
+* Unit-Test Assert Validator (#450)
++ Prefer Pragmas to Pseudo Comments (#421)
++ COLLECT restriction (#441)
+* RAP needs CREATE OBJECT ... FOR TESTING (#444)
+* Filter functional operands in "Unit Test Assert" check (#460)
+
+2021-08-12 v.1.15.0
+------------------
++ Make Messages Easy to Find (#419)
++ Make Messages Translatable (#420)
++ Avoid DEFAULT KEY (#413)
++ Prefer RETURNING to EXPORTING (#417)
++ Use | to assemble text (#287)
+* Nesting Depth - Macro (#422)
+* False-Positive: Assert=>Fail (#400)
+* False-Positive: Generated Comments (#402)
+* CALL METHOD Usage does not check if the method call is dynamic (#396)
+* Pragma in the docu for "Interface in Class"
+* Code example in the docu for "Method Ouput Parameter"
+
+2021-05-07 v.1.14.2
+------------------
+* Y_CHECK_UNIT_TEST_ASSERT: False-positive (#388)
+
+2021-05-03 v.1.14.1
+------------------
++ Assert Classes (#378)
+* Unit Test Assertion (#383)
+
+2021-04-23 v.1.14.0
+------------------
+! Notification as Default Severity (#368)
++ Prefer LINE_EXISTS or LINE_INDEX to READ TABLE or LOOP AT (#355)
++ Additional option to disable exceptions/pragmas (#329)
+* Diffs for TABL (#359)
++ Unit Test Without/With Invalid Assert (#288)
++ Prefer NEW to CREATE OBJECT (#283)
+* Standard functions in Prefer IS NOT to NOT IS (#338)
+* In the profile feature, you can add all the missing checks (#346)
+
+2021-04-08 v.1.13.2
+------------------
+* Dump in Y_CHECK_DB_ACCESS_IN_UT (#363)
+
+2021-04-05 v.1.13.1
+------------------
+* Y_CHECK_DB_ACCESS_IN_UT on INSERT INTO internal table (#348)
+
+2021-03-24 v.1.13.0
+------------------
+* y_ref_scan_manager_double
+* y_check_db_access_in_ut
+
+2021-02-24 v1.12.3
+------------------
+* Object Creation Date from TRDIR table
+* Reversal Thresholds Validation
+
+2021-02-09 v1.12.2
+------------------
+* Code Pal Exempts All the Sub-Objects (#326)
+
+2021-02-09 v1.12.1
+------------------
+* Application Component Scan (#325)
+
+2021-02-08 v1.12.0
+------------------
++ Performance Improvements (#318)
+- Shared Memory (#319)
+* Performance Issues (#317)
+* Profile Tool - UX Refinement (#313)
+- RFC Disabled (#305)
+
+2021-01-22 v1.11.1
+------------------
+* Dump in DB access in UT (#309)
+
+2021-01-18 v1.11.0
+------------------
+* CHECK position after comments (#301)
+* Modify an Internal Table is no DB Access (#300)
++ Enhancing coverage to run for multiple objects (#294)
+! Disabling profiles when the API executes the regression (#293)
+* DELETE from internal table gives a "Database access" prio 1 error (#290)
+! The pseudo comment position of the Form Routine Check was moved from the 'ENDFORM' to 'FORM' statement
+! The pseudo comment position of the Number of Public Attributes was moved from the 'CLASS DEFINITION.' to 'PUBLIC SECTION' statement
+
+2020-12-14 v1.10.0
+------------------
++ New Check: Scope of the Variable (#276)
+* Comment position when code has pseudo comments (#282)
+* Y_CHECK_STATEMENT_POSITION: before DATA declarations (#272)
++ 'was' and 'were' as a method which returns boolean (#275)
+! DB Access in UT has distinct behavior depending on test risk level (#267)
+! Prefer Case to ElseIf is now reporting single conditions only (#262)
+! Chain Declaration check is now warning by default (#266)
++ abapLint app integration in GitHub (#264)
++ API regression reports 'maintain attributes..." message (#259)
++ API improvements (#259)
+* Missing space between string or character literal and parentheses (#253)
+* Broken UTs (#251)
+* Constants in Interface (#244) 
+
+2020-11-23 v1.09.0
+------------------
++ deprecated classes/interfaces check
+! coverage checks threshold
+! 'check statement position' won't validate check in loop anymore
++ new check: 'check in loop'
+* object creation date for classes
++ service to execute regression test
+
+2020-11-16 v1.08.0
+------------------
+! deprecated classes/interfaces (aunit)
+* short dump in unit test fixed 
+! unit test using buffer with shared memory
+* prefer is not exempts line_exists( )
+* check order in sci
+
+2020-11-11 v1.07.0
+------------------
+* comment type exempt generated include
+* comment position for empty catches
+! self reference check validates instance method only
+* buffer deadlock
+! Y_CHECK_RETURNING_NAME is warning by default
+* minor clean code refactoring
++ automatic exemption for function modules with prefix TABLEFRAME* and TABLEPROC*
+* sort dump in the comment position check
+* omit optional exporting with exceptions
+
+2020-10-27 v1.06.0
+------------------
+* subsequent memory assignment check
+* 7.40 compatibility issue
+! abapLint support
+* performance
+* 'object creation date' in the include level
+
+2020-10-10 v1.05.0
+------------------
+* profile message check runs only once
+! check messages
+- db access in ut when OSQL/CDS framework is being used
+! category description
++ report to activate or deactivate the SCI entries
++ add/remove all check in profiles
+
+2020-10-05 v1.04.1
+------------------
+* magic number to support numeric strings (#142)
++ enabling table log for exemptions
+* prefer case to else if (#156)
+
+2020-09-22 v1.04.0
+------------------
++ API to read version
+! minor clean code refactoring
+! minor documentation fixes
+
+2020-09-22 v1.03.1
+------------------
+* if_apack_manifest does not exist
+
+2020-09-22 v1.03.0
+------------------
++ statement coverage check
++ branch coverage check
++ procedure coverage check
++ API to import profile
+
+2020-09-17 v1.02.1
+------------------
+* unit test of external call in ut
+! description of the profile management tool
+
+2020-09-17 v1.02.0
+------------------
++ new check y_check_external_call_in_ut
++ new check y_check_statement_coverage
++ threshold support to 'less equal' and 'greater than'
+! folder logic to prefix logic
+! name to code pal for ABAP
+! project documentation 
+
+2020-09-15 v1.01.0
+------------------
++ profile feature
+
+2020-09-14 v1.00.0
+------------------
++ changelog
